@@ -1,2 +1,2 @@
-# Mall-
+# Mall game project (current version)
  
