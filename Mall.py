@@ -1,4 +1,4 @@
-import tkinter as tk
+
 class Mall():
     '''represents one mall'''
     def __init__(self,name, numStores, floors, city, state, GoodParking):
@@ -168,6 +168,12 @@ class NPC(Person):
         '''returns a character phrase as a str'''
         return self.phrases[x]
 
+    def getLocation(self):
+        return self.location
+    
+    def getPhrases(self):
+        return self.phrases
+
 class MC(Person):
     '''Main character. Moves around in the game and performs actions'''
     def __init__(self, name, description, agility, strength, mathz):
@@ -211,33 +217,33 @@ IntlMall=Mall("International Mall",190,2,'Tampa','Florida',"Busy")
 onWebsite = True
 OnlineRobot = NPC('OnlineRobot','This robot can give you information about the mall you want to go to.',
                 [("Hello, this is the " + IntlMall.whatItsCalled()  +  " Online Robot. I can give you information about the mall. " + '\n'
-                "What do you want to know? Please select from the following options" + '\n' + 
-                "Type exit to turn the computer off"),
+                "What do you want to know? Please select from the following options: " + '\n' ),
                 ('There are ' + str(IntlMall.howManyFloors()) + ' floors'),
                 ('We are located in ' + IntlMall.whatCity()),
                 ('We are located in ' + IntlMall.whatState()),
                 ('There are currently ' + str(IntlMall.howManyStores()) + ' stores!'),
                 ('Our parking lot is usually ' + IntlMall.isParkingGood())],'online',None)
 
+# def Robo():
+#     onWebsite=True
+#     while onWebsite:
+#         Response1=input('\n'+"1: How many floors are there?" + '\n'+
+#                         "2: What city are you located in?" + '\n' +
+#                         "3: What state are you located in?" + '\n' +
+#                         "4: How many stores are there?" + '\n' +
+#                         "5: Is the parking lot busy?  "  + '\n')
 
-# while onWebsite:
-#     Response1=input('\n'+"1: How many floors are there?" + '\n'+
-#                     "2: What city are you located in?" + '\n' +
-#                     "3: What state are you located in?" + '\n' +
-#                     "4: How many stores are there?" + '\n' +
-#                     "5: Is the parking lot busy?  "  + '\n')
+#         try:
+#             if int(Response1) < len(OnlineRobot.phrases):
+#                 print(OnlineRobot.getPhrase(int(Response1)))
+#             else:
+#                 print ("Sorry, I don't understand. Please select from the following options: " + '\n')
 
-#     try:
-#         if int(Response1) < len(OnlineRobot.phrases):
-#             print(OnlineRobot.getPhrase(int(Response1)))
-#         else:
-#             print ("Sorry, I don't understand. Please select from the following options: " + '\n')
-
-#     except ValueError:
-#         if Response1.lower() == 'exit':
-#             onWebsite = False
-#         else:
-#             print ("Sorry, I don't understand. Please select from the following options: " + '\n')
+#         except ValueError:
+#             if Response1.lower() == 'exit':
+#                 onWebsite = False
+#             else:
+#                 print ("Sorry, I don't understand. Please select from the following options: " + '\n')
         
 
 
